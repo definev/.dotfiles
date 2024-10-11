@@ -18,44 +18,72 @@
       environment.systemPackages =
         [ pkgs.neovim
           pkgs.tmux
+          pkgs.nerdfonts
           pkgs.corepack_latest
-          pkgs.alacritty
-          pkgs.appflowy
           pkgs.hugo
           pkgs.zoxide
+          pkgs.vscode
+          pkgs.iterm2
         ];
 
-      homebrew = {
-        enable = true;
+      homebrew = 
+        {
+          enable = true;
 
-        brews = [
-          "mas"
-          "nginx"
-          "fzf"
-          "rbenv"
-          "node"
-        ];
+          brews = [
+            "mas"
+            "nginx"
+            "fzf"
+            "rbenv"
+            "node"
+          ];
 
-        casks = [
-          "hammerspoon"
-          "notion"
-          "loop"
-          "the-unarchiver"
-          "obsidian"
-          "android-platform-tools"
-          "swimat"
-        ];
+          casks = [
+            "hammerspoon"
+            "notion"
+            "loop"
+            "the-unarchiver"
+            "obsidian"
+            "android-platform-tools"
+            "swimat"
+          ];
 
-        masApps = {
-          Xcode = 497799835;
+          masApps = {
+            Xcode = 497799835;
+          };
+
+          onActivation.cleanup = "zap";
         };
-
-        onActivation.cleanup = "zap";
-      };
 
       fonts.packages = 
         [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         ];
+
+      system.defaults = {
+        dock.autohide = true;
+        dock.orientation = "bottom";
+        dock.persistent-others = [
+          "/Users/daiduong/Downloads"
+          "/Users/daiduong/Desktop"
+        ];
+        dock.show-recents = false;
+        dock.wvous-bl-corner = 2;
+        dock.wvous-br-corner = 7;
+        dock.wvous-tl-corner = 11;
+        dock.wvous-tr-corner = 1;
+
+        dock.persistent-apps = [
+          "/System/Applications/Mail.app"
+          "/Applications/Google Chrome.app"
+          "/Applications/Notion.app"
+          "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "${pkgs.iterm2}/Applications/iTerm2.app"
+          "/Applications/Zalo.app"
+        ];
+
+        finder.FXPreferredViewStyle = "clmv";
+        finder.QuitMenuItem = true;
+      };
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
