@@ -24,18 +24,29 @@
           pkgs.zoxide
           pkgs.vscode
           pkgs.iterm2
+          pkgs.go
+          pkgs.docker
+          pkgs.ripgrep
+          pkgs.obsidian
         ];
 
       homebrew = 
-        {
-          enable = true;
+        { enable = true;
+
+          taps = [
+            "leoafarias/fvm"
+          ];
 
           brews = [
+            "fvm"
             "mas"
             "nginx"
             "fzf"
             "rbenv"
             "node"
+            "docker-completion"
+            "flyctl"
+            "llama.cpp"
           ];
 
           casks = [
@@ -60,13 +71,13 @@
         ];
 
       system.defaults = {
-        dock.autohide = true;
+        dock.autohide = false;
         dock.orientation = "bottom";
         dock.persistent-others = [
           "/Users/daiduong/Downloads"
           "/Users/daiduong/Desktop"
         ];
-        dock.show-recents = false;
+        dock.show-recents = true;
         dock.wvous-bl-corner = 2;
         dock.wvous-br-corner = 7;
         dock.wvous-tl-corner = 11;
@@ -78,6 +89,7 @@
           "/Applications/Notion.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
           "${pkgs.iterm2}/Applications/iTerm2.app"
+          "${pkgs.obsidian}/Applications/Obsidian.app"
           "/Applications/Zalo.app"
         ];
 
