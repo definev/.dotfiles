@@ -17,6 +17,7 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ pkgs.neovim
+          pkgs.zig
           pkgs.tmux
           pkgs.nerdfonts
           pkgs.corepack_latest
@@ -24,10 +25,10 @@
           pkgs.zoxide
           pkgs.vscode
           pkgs.iterm2
-          pkgs.go
           pkgs.docker
           pkgs.ripgrep
           pkgs.obsidian
+          pkgs.scrcpy
         ];
 
       homebrew = 
@@ -35,9 +36,11 @@
 
           taps = [
             "leoafarias/fvm"
+            "codecrafters-io/tap"
           ];
 
           brews = [
+            "go"
             "fvm"
             "mas"
             "nginx"
@@ -47,11 +50,16 @@
             "docker-completion"
             "flyctl"
             "llama.cpp"
+            "ffmpeg"
+            "zls"
+            "codecrafters-io/tap/codecrafters"
+            "cmake"
           ];
 
           casks = [
             "hammerspoon"
             "notion"
+            "ghostty"
             "loop"
             "the-unarchiver"
             "obsidian"
@@ -91,6 +99,7 @@
           "${pkgs.iterm2}/Applications/iTerm2.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "/Applications/Zalo.app"
+          "/Applications/Ghostty.app"
         ];
 
         finder.FXPreferredViewStyle = "clmv";

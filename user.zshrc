@@ -1,10 +1,5 @@
+export GOROOT=$(brew --prefix go)/libexec
 
-export GOOGLE_API_KEY="AIzaSyDTESoHMGkxAsNGxj4lUAIJnlO_-eiGiXA"
-export GEMINI_API_KEY="AIzaSyDTESoHMGkxAsNGxj4lUAIJnlO_-eiGiXA"
-
-export GOPATH="/Users/daiduong/go"
-
-export PATH="/Volumes/MacOS - Home/source/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/Users/daiduong/.rbenv/shims:$PATH"
 export PATH="/Users/daiduong/.gem/bin:$PATH"
@@ -33,8 +28,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="$PATH:$HOME/.pub-cache/bin"
-
-export PATH=$PATH:~/.flutter-spy
 
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"

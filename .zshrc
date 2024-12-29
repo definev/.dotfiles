@@ -73,6 +73,7 @@ alias pip='pip3.10'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+source <(ng completion script)
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
