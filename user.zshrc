@@ -1,11 +1,11 @@
 export GOROOT=$(brew --prefix go)/libexec
 
 export PATH="$GOPATH/bin:$PATH"
-export PATH="/Users/daiduong/.rbenv/shims:$PATH"
-export PATH="/Users/daiduong/.gem/bin:$PATH"
-export PATH="/Users/daiduong/Library/Android/sdk/cmdline-tools/latest/bin:$PATH"
-export PATH="/Users/daiduong/fvm/default/bin:$PATH"
-export PATH="/Users/daiduong/go/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.gem/bin:$PATH"
+export PATH="$HOME/Library/Android/sdk/cmdline-tools/latest/bin:$PATH"
+export PATH="$HOME/fvm/default/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall

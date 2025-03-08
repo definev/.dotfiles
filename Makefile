@@ -3,10 +3,12 @@
 sync:
 	cp user.zshrc ~/user.zshrc
 	cp .zshrc ~/.zshrc
+	cp .yabairc ~/.yabairc
+	cp .skhdrc ~/.skhdrc
 	cp nix/darwin/* ~/.config/nix/
 
 build_darwin:
-	darwin-rebuild switch --flake ~/.config/nix#m1max16
+	darwin-rebuild switch --flake ~/.dotfiles/nix/darwin#m1max16
 
 start_llama:
 	llama-server \

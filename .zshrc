@@ -29,7 +29,7 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::command-not-found
 
-# Load completions
+# Load completions$
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
@@ -69,6 +69,7 @@ alias c='clear'
 alias z='cd'
 alias python='python3.10'
 alias pip='pip3.10'
+alias reset_ssh="kill -9 $(eval "$(ssh-agent -s)" | grep -o '[0-9]\+')"
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -80,3 +81,6 @@ source <(ng completion script)
 [[ -f /Users/daiduong/.dart-cli-completion/zsh-config.zsh ]] && . /Users/daiduong/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+export PATH="$HOME/.dotfiles:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"

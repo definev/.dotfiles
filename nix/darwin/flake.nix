@@ -23,12 +23,12 @@
           pkgs.corepack_latest
           pkgs.hugo
           pkgs.zoxide
-          pkgs.vscode
           pkgs.iterm2
           pkgs.docker
           pkgs.ripgrep
           pkgs.obsidian
           pkgs.scrcpy
+          pkgs.git-lfs
         ];
 
       homebrew = 
@@ -40,6 +40,8 @@
           ];
 
           brews = [
+            "deno"
+            "node"
             "go"
             "fvm"
             "mas"
@@ -54,6 +56,12 @@
             "zls"
             "codecrafters-io/tap/codecrafters"
             "cmake"
+            "redis"
+            "ccls"
+            "opus"
+            "libogg"
+            "supabase/tap/supabase"
+            "koekeishiya/formulae/yabai"
           ];
 
           casks = [
@@ -95,7 +103,7 @@
           "/System/Applications/Mail.app"
           "/Applications/Google Chrome.app"
           "/Applications/Notion.app"
-          "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "/Applications/Visual Studio Code.app"
           "${pkgs.iterm2}/Applications/iTerm2.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "/Applications/Zalo.app"
