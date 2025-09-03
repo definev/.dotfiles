@@ -64,11 +64,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color'
-alias vim='nvim'
 alias c='clear'
 alias z='cd'
-alias python='python3.10'
-alias pip='pip3.10'
 alias reset_ssh="kill -9 $(eval "$(ssh-agent -s)" | grep -o '[0-9]\+')"
 
 # Shell integrations
@@ -81,6 +78,31 @@ source <(ng completion script)
 [[ -f /Users/daiduong/.dart-cli-completion/zsh-config.zsh ]] && . /Users/daiduong/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+export PATH="/Volumes/home/source/bin:$PATH"
 export PATH="$HOME/.dotfiles:$PATH"
 export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$PATH:/Volumes/home/source/bin/google-cloud-sdk"
+
+source $HOME/.local/bin/env
+
+alias python="python3"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Volumes/home/source/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Volumes/home/source/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Volumes/home/source/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Volumes/home/source/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/daiduong/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

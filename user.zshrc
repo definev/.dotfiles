@@ -1,3 +1,5 @@
+eval $(/opt/homebrew/bin/brew shellenv)
+
 export GOROOT=$(brew --prefix go)/libexec
 
 export PATH="$GOPATH/bin:$PATH"

@@ -19,16 +19,18 @@
         [ pkgs.neovim
           pkgs.zig
           pkgs.tmux
-          pkgs.nerdfonts
+          # pkgs.nerdfonts
           pkgs.corepack_latest
           pkgs.hugo
           pkgs.zoxide
           pkgs.iterm2
           pkgs.docker
           pkgs.ripgrep
-          pkgs.obsidian
-          pkgs.scrcpy
+          # pkgs.obsidian
+          # pkgs.scrcpy
           pkgs.git-lfs
+          # pkgs.skhd
+          # pkgs.yabai
         ];
 
       homebrew = 
@@ -37,11 +39,18 @@
           taps = [
             "leoafarias/fvm"
             "codecrafters-io/tap"
+            "koekeishiya/formulae"
           ];
 
           brews = [
+            "swiftformat"
+            "xcode-build-server"
+            "xcbeautify"
+            "psql"
+            "scrcpy"
+            "xcodegen"
+            "create-dmg"
             "deno"
-            "node"
             "go"
             "fvm"
             "mas"
@@ -61,14 +70,14 @@
             "opus"
             "libogg"
             "supabase/tap/supabase"
-            "koekeishiya/formulae/yabai"
+            "yabai"
+            "skhd"
+            "pandoc"
           ];
 
           casks = [
-            "hammerspoon"
             "notion"
             "ghostty"
-            "loop"
             "the-unarchiver"
             "obsidian"
             "android-platform-tools"
@@ -78,44 +87,43 @@
           masApps = {
             Xcode = 497799835;
           };
-
-          onActivation.cleanup = "zap";
         };
 
-      fonts.packages = 
-        [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        ];
+      fonts.packages = [
+        pkgs.nerd-fonts.jetbrains-mono
+      ]; 
+
+      system.primaryUser = "daiduong";
 
       system.defaults = {
-        dock.autohide = false;
+        dock.autohide = true;
         dock.orientation = "bottom";
         dock.persistent-others = [
           "/Users/daiduong/Downloads"
           "/Users/daiduong/Desktop"
         ];
-        dock.show-recents = true;
-        dock.wvous-bl-corner = 2;
-        dock.wvous-br-corner = 7;
-        dock.wvous-tl-corner = 11;
+        dock.show-recents = false;
+        dock.wvous-bl-corner = 1;
+        dock.wvous-br-corner = 1;
+        dock.wvous-tl-corner = 1;
         dock.wvous-tr-corner = 1;
 
         dock.persistent-apps = [
           "/System/Applications/Mail.app"
           "/Applications/Google Chrome.app"
-          "/Applications/Notion.app"
           "/Applications/Visual Studio Code.app"
           "${pkgs.iterm2}/Applications/iTerm2.app"
-          "${pkgs.obsidian}/Applications/Obsidian.app"
+          "/Applications/Obsidian.app"
           "/Applications/Zalo.app"
           "/Applications/Ghostty.app"
         ];
 
         finder.FXPreferredViewStyle = "clmv";
         finder.QuitMenuItem = true;
+        finder.AppleShowAllFiles = true;
       };
 
       # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
@@ -138,7 +146,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
+    # $ darwin-rebuild build --flake .#Buis-MacBook-Pro
     darwinConfigurations."m1max16" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration 
